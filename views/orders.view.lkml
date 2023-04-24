@@ -8,7 +8,7 @@ view: orders {
     sql: ${TABLE}.id ;;
   }
 
-  dimension_group: created {
+  dimension_group: date {
     type: time
     timeframes: [
       raw,
@@ -20,6 +20,27 @@ view: orders {
       year
     ]
     sql: ${TABLE}.created_at ;;
+  }
+
+  parameter: day_interval {
+    type: number
+  }
+
+  dimension: dynamic_created_date {
+    label_from_parameter: day_interval
+    sql:${date_date};;
+
+    html:
+
+    {% if day_interval._parameter_value != " NULL" %}
+
+      {{ rendered_value | date: "%B %d, %Y"}}
+
+      {% else %}
+
+      {{ rendered_value}}
+
+      {% endif %};;
   }
 
   dimension: status {
