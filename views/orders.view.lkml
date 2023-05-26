@@ -53,11 +53,6 @@ view: orders {
     sql: ${TABLE}.user_id;;
   }
 
-  dimension: user_id1 {
-    type: date
-    datatype: epoch
-    sql: ${TABLE}.user_id/100;;
-  }
 
   measure: count {
     type: count
