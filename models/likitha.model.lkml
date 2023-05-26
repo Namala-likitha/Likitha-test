@@ -2,6 +2,7 @@ connection: "thelook"
 
 # include all the views
 include: "/views/**/*.view"
+include: "/Repro/Testing.explore.lkml"
 
 datagroup: likitha_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
